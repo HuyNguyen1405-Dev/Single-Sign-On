@@ -8,6 +8,7 @@ const configPassport  = ()  => {
     valueLogin: username,
     password: password,
    }
+   
    let res = await loginRegisterService.handleUserLogin(rawData);
    console.log(">>> response", res);
    if( res && +res.EC === 0){
@@ -18,4 +19,11 @@ const configPassport  = ()  => {
 }));
 }
 
-module.exports = {configPassport};
+const handleLogout = (req, res, next) => {
+   req.session.destroy(function (err){
+    req.logout();
+    res.redirect("/");
+   })
+}
+
+module.exports = {configPassport, handleLogout};

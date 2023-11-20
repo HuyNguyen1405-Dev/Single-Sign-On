@@ -30,10 +30,14 @@
         cursor: pointer;
         padding: 0 15px;
     }
+
+    .login-container {
+        padding-top: 50px;
+    }
 </style>
 
 <body>
-    <div class="container">
+    <div class="login-container">
         <div class="row">
             <form action="/login" method="POST">
                 <div class="login-container col-6 mx-auto">
@@ -41,12 +45,22 @@
                         <legend class="float-none w-auto px-3">Login form</legend>
                         <div class="mb-3 col-12">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="username">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <label class="form-label">Password</label>
+                            <div class="input-group has-validation">
+                                <input type="email" class="form-control" name="username">
+                                <div class="invalid-feedback">
+                                    Please choose a username
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3 col-12">
                             <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <div class="input-group has-validation">
+                                <input type="password" name="password" class="form-control is-invalid">
+                                <div class="invalid-feedback">
+                                    Please choose a username
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                         <hr />
